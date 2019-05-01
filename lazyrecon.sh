@@ -71,7 +71,7 @@ screenshot(){
 
 recon(){
 
-  python ~/tools/Sublist3r/sublist3r.py -d $domain -t 10 -v -o ./$domain/$foldername/$domain.txt
+  python ~/Documents/Tools/Subdomain-Enumeration/Sublist3r/sublist3r.py -d $domain -t 10 -v -o ./$domain/$foldername/$domain.txt
   curl -s https://certspotter.com/api/v0/certs\?domain\=$domain | jq '.[].dns_names[]' | sed 's/\"//g' | sed 's/\*\.//g' | sort -u | grep $domain >> ./$domain/$foldername/$domain.txt
   discovery $domain
   cat ./$domain/$foldername/$domain.txt | sort -u > ./$domain/$foldername/$domain.txt
@@ -79,7 +79,7 @@ recon(){
 }
 
 dirsearcher(){
-  python3 ~/tools/dirsearch/dirsearch.py -e php,asp,aspx,jsp,html,zip,jar,sql -u $line
+  python3 ~/Documents/Tools/Directory-Buster/dirsearch/dirsearch.py -e php,asp,aspx,jsp,html,zip,jar,sql -u $line
 }
 
 
